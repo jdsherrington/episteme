@@ -1,0 +1,71 @@
+version: 1
+format: markdown-frontmatter
+skills:
+  - id: episteme
+    path: episteme/SKILL.md
+    summary: Core retrieval and write workflow for Episteme commands.
+    triggers:
+      - "Episteme: <query|write>"
+      - "/episteme <query|write>"
+    excludes:
+      - setup
+      - init
+      - bootstrap
+      - repair
+      - health
+      - audit
+      - check
+      - catalog
+      - reindex
+      - graph
+      - rebuild-index
+    delegates:
+      setup: episteme-setup
+      init: episteme-setup
+      bootstrap: episteme-setup
+      repair: episteme-setup
+      health: episteme-health
+      audit: episteme-health
+      check: episteme-health
+      catalog: episteme-catalog
+      reindex: episteme-catalog
+      graph: episteme-catalog
+      rebuild-index: episteme-catalog
+  - id: episteme-setup
+    path: episteme-setup/SKILL.md
+    summary: Initialize or repair Episteme vault structure and bootstrap indexes.
+    triggers:
+      - "Episteme: setup"
+      - "/episteme setup"
+      - "Episteme: init"
+      - "/episteme init"
+      - "Episteme: bootstrap"
+      - "/episteme bootstrap"
+      - "Episteme: repair"
+      - "/episteme repair"
+  - id: episteme-health
+    path: episteme-health/SKILL.md
+    summary: Structural audit and corrective diff planning for Episteme vaults.
+    triggers:
+      - "Episteme: health"
+      - "/episteme health"
+      - "Episteme: audit"
+      - "/episteme audit"
+      - "Episteme: check"
+      - "/episteme check"
+  - id: episteme-catalog
+    path: episteme-catalog/SKILL.md
+    summary: Deterministic graph and catalog generation.
+    triggers:
+      - "Episteme: catalog"
+      - "/episteme catalog"
+      - "Episteme: reindex"
+      - "/episteme reindex"
+      - "Episteme: graph"
+      - "/episteme graph"
+      - "Episteme: rebuild-index"
+      - "/episteme rebuild-index"
+compatibility:
+  notes:
+    - "This pack is vendor-neutral: each skill is plain Markdown with YAML frontmatter."
+    - "Use the registry to map command verbs to skill files in non-Codex runtimes."
